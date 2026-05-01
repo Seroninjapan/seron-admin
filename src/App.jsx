@@ -82,7 +82,7 @@ export default function App() {
   }
 
   const signInWithGoogle = async () => {
-    await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.href } })
+    await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'https://seroninjapan.github.io/seron-admin/' } })
   }
 
   const signOut = async () => {
