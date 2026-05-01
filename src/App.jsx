@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 
-const ADMIN_EMAIL = 'seroninjapan@gmail.com'
+const ADMIN_EMAILS = ['seroninjapan@gmail.com', 'hello@seron-japan.com']
 
 export default function App() {
   const [session, setSession] = useState(null)
@@ -30,7 +30,7 @@ export default function App() {
   }, [])
 
   const checkAdmin = async (user) => {
-    if (user.email === ADMIN_EMAIL) {
+    if (ADMIN_EMAILS.includes(user.email)) {
       setIsAdmin(true)
       // adminロールを設定
       await supabase.from('profiles').upsert({
